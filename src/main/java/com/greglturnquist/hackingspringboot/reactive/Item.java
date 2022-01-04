@@ -1,9 +1,26 @@
-package com.freeefly.learningspringwebflux.reactive;
+/*
+ * Copyright 2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.greglturnquist.hackingspringboot.reactive;
 
 import org.springframework.data.annotation.Id;
 
 import java.util.Objects;
 
+// tag::code[]
 public class Item {
 
     private @Id String id;
@@ -19,6 +36,11 @@ public class Item {
         this.name = name;
         this.description = description;
         this.price = price;
+    }
+
+    Item(String id, String name, String description, double price) {
+        this(name, description, price);
+        this.id = id;
     }
 
     public String getId() {
@@ -63,9 +85,9 @@ public class Item {
         }
         Item item = (Item) o;
         return Double.compare(item.price, price) == 0 &&
-                Objects.equals(id, item.id) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(description, item.description);
+            Objects.equals(id, item.id) &&
+            Objects.equals(name, item.name) &&
+            Objects.equals(description, item.description);
     }
 
     @Override
@@ -76,10 +98,10 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                '}';
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", description='" + description + '\'' +
+            ", price=" + price +
+            '}';
     }
 }
