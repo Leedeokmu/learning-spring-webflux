@@ -41,7 +41,7 @@ import com.greglturnquist.hackingspringboot.reactive.Item;
 import com.greglturnquist.hackingspringboot.reactive.ItemRepository;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::1[]
 @ExtendWith(SpringExtension.class) // <1>
@@ -66,7 +66,7 @@ public class BlockHoundIntegrationTest {
 		// by your collaborators <2>
 
 		when(cartRepository.findById(anyString())) //
-				.thenReturn(Mono.<Cart>empty().hide()); // <3>
+				.thenReturn(Mono.<Cart> empty().hide()); // <3>
 
 		when(itemRepository.findById(anyString())).thenReturn(Mono.just(sampleItem));
 		when(cartRepository.save(any(Cart.class))).thenReturn(Mono.just(sampleCart));

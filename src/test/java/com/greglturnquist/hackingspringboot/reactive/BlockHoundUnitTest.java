@@ -25,7 +25,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 class BlockHoundUnitTest {
 
@@ -35,7 +35,7 @@ class BlockHoundUnitTest {
 		Mono.delay(Duration.ofSeconds(1)) // <1>
 				.flatMap(tick -> {
 					try {
-						Thread.sleep(10); // <2>
+						Thread.sleep(10); // <2> Blocking Call!
 						return Mono.just(true);
 					} catch (InterruptedException e) {
 						return Mono.error(e);
@@ -43,11 +43,12 @@ class BlockHoundUnitTest {
 				}) //
 				.as(StepVerifier::create) //
 //				.verifyComplete();
-				.verifyErrorMatches(throwable -> {
+				.expectErrorMatches(throwable -> {
 					assertThat(throwable.getMessage()) //
 							.contains("Blocking call! java.lang.Thread.sleep");
 					return true;
 				});
+
 	}
 	// end::obvious-failure[]
 

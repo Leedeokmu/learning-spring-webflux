@@ -23,7 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.greglturnquist.hackingspringboot.reactive.Item;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::code[]
 class ItemUnitTest {

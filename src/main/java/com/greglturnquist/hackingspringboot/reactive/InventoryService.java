@@ -16,11 +16,11 @@
 
 package com.greglturnquist.hackingspringboot.reactive;
 
-import org.springframework.stereotype.Service;
+import java.util.stream.Collectors;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Greg Turnquist
@@ -37,6 +37,14 @@ class InventoryService {
                      CartRepository cartRepository) {
         this.itemRepository = repository;
         this.cartRepository = cartRepository;
+    }
+
+    public Flux<Cart> getAllCarts() {
+        return this.cartRepository.findAll();
+    }
+
+    public Mono<Cart> newCart() {
+        return this.cartRepository.save(new Cart("cart"));
     }
 
     public Mono<Cart> getCart(String cartId) {

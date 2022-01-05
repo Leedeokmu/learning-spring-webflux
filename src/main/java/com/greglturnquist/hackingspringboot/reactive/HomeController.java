@@ -26,7 +26,7 @@ import org.springframework.web.reactive.result.view.Rendering;
 import reactor.core.publisher.Mono;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::1[]
 @Controller

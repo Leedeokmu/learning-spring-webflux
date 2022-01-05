@@ -16,8 +16,9 @@
 
 package com.greglturnquist.hackingspringboot.reactive;
 
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+
+import org.springframework.stereotype.Service;
 
 /**
  * @author Greg Turnquist

@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::code[]
 @DataMongoTest // <1>

@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.MediaType.*;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::code[]
 @Disabled("pom.xml에서 blockhound-junit-platform 의존 관계를 제거한 후에 실행해야 성공한다.")

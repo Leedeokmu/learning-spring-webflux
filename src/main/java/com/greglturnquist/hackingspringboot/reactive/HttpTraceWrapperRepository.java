@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,13 +16,16 @@
 
 package com.greglturnquist.hackingspringboot.reactive;
 
-import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;
+import org.springframework.data.repository.Repository;
+
+import java.util.stream.Stream;
 
 /**
  * @author freeefly
  */
 // tag::code[]
-public interface ItemByExampleRepository extends ReactiveQueryByExampleExecutor<Item> {
-
+public interface HttpTraceWrapperRepository extends Repository<HttpTraceWrapper, String> {
+	Stream<HttpTraceWrapper> findAll(); // <1>
+	void save(HttpTraceWrapper trace); // <2>
 }
 // end::code[]

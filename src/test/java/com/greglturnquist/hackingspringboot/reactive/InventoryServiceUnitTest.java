@@ -29,7 +29,6 @@ import java.util.Collections;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.greglturnquist.hackingspringboot.reactive.Cart;
@@ -40,7 +39,7 @@ import com.greglturnquist.hackingspringboot.reactive.Item;
 import com.greglturnquist.hackingspringboot.reactive.ItemRepository;
 
 /**
- * @author Greg Turnquist
+ * @author freeefly
  */
 // tag::extend[]
 @ExtendWith(SpringExtension.class) // <1>
@@ -58,9 +57,6 @@ class InventoryServiceUnitTest { // <2>
 	// tag::before[]
 	@BeforeEach // <1>
 	void setUp() {
-//		itemRepository = mock(ItemRepository.class);
-//		cartRepository = mock(CartRepository.class);
-
 		// Define test data <2>
 		Item sampleItem = new Item("item1", "TV tray", "Alf TV tray", 19.99);
 		CartItem sampleCartItem = new CartItem(sampleItem);
@@ -111,5 +107,4 @@ class InventoryServiceUnitTest { // <2>
 				.verifyComplete(); // <8>
 	}
 	// end::test2[]
-
 }
