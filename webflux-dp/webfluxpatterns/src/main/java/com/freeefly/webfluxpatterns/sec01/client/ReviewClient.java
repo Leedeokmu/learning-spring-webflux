@@ -24,6 +24,8 @@ public class ReviewClient {
             .retrieve()
             .bodyToFlux(Review.class)
             .collectList()
+            .onErrorReturn(Collections.EMPTY_LIST)
+            .log()
             ;
     }
 }

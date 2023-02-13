@@ -1,6 +1,7 @@
 package com.freeefly.webfluxpatterns.sec01.client;
 
 import com.freeefly.webfluxpatterns.sec01.dto.ProductResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -20,6 +21,8 @@ public class ProductClient {
         return client.get()
             .uri("{id}", id)
             .retrieve()
-            .bodyToMono(ProductResponse.class);
+            .bodyToMono(ProductResponse.class)
+            .log()
+            ;
     }
 }
