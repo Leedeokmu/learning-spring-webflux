@@ -1,3 +1,7 @@
+#logging:
+#  level:
+#    root: debug
+
 sec01:
   product.service: http://localhost:7070/sec01/product/
   promotion.service: http://localhost:7070/sec01/promotion/

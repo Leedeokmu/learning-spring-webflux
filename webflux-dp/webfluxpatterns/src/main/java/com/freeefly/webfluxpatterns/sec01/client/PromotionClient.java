@@ -29,7 +29,6 @@ public class PromotionClient {
             .retrieve()
             .bodyToMono(PromotionResponse.class)
             .onErrorReturn(NO_PROMOTION)
-            .log()
             ;
     }
 }

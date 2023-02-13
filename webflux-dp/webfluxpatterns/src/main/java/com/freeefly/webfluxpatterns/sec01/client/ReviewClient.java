@@ -25,7 +25,6 @@ public class ReviewClient {
             .bodyToFlux(Review.class)
             .collectList()
             .onErrorReturn(Collections.EMPTY_LIST)
-            .log()
             ;
     }
 }

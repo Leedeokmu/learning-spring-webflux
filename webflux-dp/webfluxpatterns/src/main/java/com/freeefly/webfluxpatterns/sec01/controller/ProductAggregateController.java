@@ -24,5 +24,4 @@ public class ProductAggregateController {
             .defaultIfEmpty(ResponseEntity.notFound().build())
             ;
     }
-
 }
