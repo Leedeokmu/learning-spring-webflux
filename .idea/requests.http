@@ -3,3 +3,6 @@ GET localhost:7070/sec01/promotion/2
 
 ### sec01 product 조합 api
 GET localhost:8080/sec01/product/7
+
+### sec02 scatter gather api 조회
+GET localhost:8080/sec02/flights/ATL/LAS
