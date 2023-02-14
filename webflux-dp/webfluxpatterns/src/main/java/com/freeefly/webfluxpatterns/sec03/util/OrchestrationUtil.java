@@ -30,7 +30,7 @@ public class OrchestrationUtil {
     }
     private static void buildShippingRequest(OrchestrationRequestContext context) {
         ShippingRequest shippingRequest = ShippingRequest.of(
-            context.getOrderRequest().getQuantity(),
+            context.getOrderRequest().getUserId(),
             context.getOrderRequest().getQuantity(),
             context.getOrderId()
         );

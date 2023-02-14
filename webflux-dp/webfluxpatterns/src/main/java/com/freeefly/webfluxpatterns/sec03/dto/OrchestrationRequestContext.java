@@ -15,6 +15,7 @@ public class OrchestrationRequestContext {
     private InventoryResponse inventoryResponse;
     private ShippingRequest shippingRequest;
     private ShippingResponse shippingResponse;
+    private Status status;
 
     public OrchestrationRequestContext(OrderRequest orderRequest) {
         this.orderRequest = orderRequest;
