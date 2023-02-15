@@ -27,3 +27,21 @@ Content-Type: application/json
   "quantity": 1000
 }
 
+### sec05 예약
+POST localhost:8080/sec05/reserve
+Content-Type: application/json
+
+[
+  {
+    "city": "ATLANTA",
+    "from": "2022-05-01",
+    "to": "2022-05-02",
+    "type": "CAR"
+  },
+  {
+    "city": "ATLANTA",
+    "from": "2022-05-01",
+    "to": "2022-05-02",
+    "type": "ROOM"
+  }
+]
