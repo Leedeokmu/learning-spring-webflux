@@ -45,3 +45,6 @@ Content-Type: application/json
     "type": "ROOM"
   }
 ]
+
+### sec06 상품 조합 api
+GET localhost:8080/sec06/product/3
