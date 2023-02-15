@@ -1,7 +1,7 @@
 package com.freeefly.webfluxpatterns.sec09.client;
 
 import com.freeefly.webfluxpatterns.sec09.dto.Review;
-import java.time.Duration;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,15 +21,17 @@ public class ReviewClient {
             .build();
     }
 
+    @RateLimiter(name = "review-service", fallbackMethod = "fallback")
     public Mono<List<Review>> getReview(Integer id) {
         return client.get()
             .uri("{id}", id)
             .retrieve()
             .onStatus(HttpStatus::is4xxClientError, response -> Mono.empty())
             .bodyToFlux(Review.class)
-            .collectList()
-            .retry(5)
-            .timeout(Duration.ofMillis(300))
-            .onErrorReturn(Collections.EMPTY_LIST);
+            .collectList();
+    }
+
+    public Mono<List<Review>> fallback(Integer id, Throwable ex) {
+        return Mono.just(Collections.emptyList());
     }
 }
