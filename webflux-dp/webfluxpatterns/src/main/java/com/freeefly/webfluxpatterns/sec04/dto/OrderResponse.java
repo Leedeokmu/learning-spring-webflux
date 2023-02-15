@@ -1,0 +1,20 @@
+package com.freeefly.webfluxpatterns.sec04.dto;
+
+import java.util.UUID;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor(staticName = "of")
+public class OrderResponse {
+    private Integer userId;
+    private Integer productId;
+    private UUID orderId;
+    private Status status;
+    private Address shippingAddress;
+    private String expectedDelivery;
+
+
+}

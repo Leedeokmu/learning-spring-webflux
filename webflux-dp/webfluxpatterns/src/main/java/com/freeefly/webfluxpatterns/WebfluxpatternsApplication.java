@@ -3,7 +3,7 @@ package com.freeefly.webfluxpatterns;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages = "com.freeefly.webfluxpatterns.sec03")
+@SpringBootApplication(scanBasePackages = "com.freeefly.webfluxpatterns.sec04")
 public class WebfluxpatternsApplication {
 
     public static void main(String[] args) {

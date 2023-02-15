@@ -17,3 +17,13 @@ Content-Type: application/json
   "quantity": 10
 }
 
+### sec04 주문
+POST localhost:8080/sec04/order
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 1,
+  "quantity": 1000
+}
+
