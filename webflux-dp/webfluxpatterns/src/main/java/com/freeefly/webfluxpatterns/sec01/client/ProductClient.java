@@ -1,5 +1,6 @@
 package com.freeefly.webfluxpatterns.sec01.client;
 
+import com.freeefly.webfluxpatterns.sec01.dto.ProductResponse;
 import com.freeefly.webfluxpatterns.sec03.dto.Product;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -16,11 +17,11 @@ public class ProductClient {
             .build();
     }
 
-    public Mono<Product> getProduct(Integer id) {
+    public Mono<ProductResponse> getProduct(Integer id) {
         return client.get()
             .uri("{id}", id)
             .retrieve()
-            .bodyToMono(Product.class)
+            .bodyToMono(ProductResponse.class)
             .onErrorResume(ex -> Mono.empty())
             ;
     }

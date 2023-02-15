@@ -6,3 +6,14 @@ GET localhost:8080/sec01/product/7
 
 ### sec02 scatter gather api 조회
 GET localhost:8080/sec02/flights/ATL/LAS
+
+### sec03 주문
+POST localhost:8080/sec03/order
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "productId": 1,
+  "quantity": 10
+}
+

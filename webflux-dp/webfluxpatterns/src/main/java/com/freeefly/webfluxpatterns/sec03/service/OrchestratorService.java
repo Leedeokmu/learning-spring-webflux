@@ -7,6 +7,7 @@ import com.freeefly.webfluxpatterns.sec03.dto.OrderRequest;
 import com.freeefly.webfluxpatterns.sec03.dto.OrderResponse;
 import com.freeefly.webfluxpatterns.sec03.dto.Product;
 import com.freeefly.webfluxpatterns.sec03.dto.Status;
+import com.freeefly.webfluxpatterns.sec03.util.DebugUtil;
 import com.freeefly.webfluxpatterns.sec03.util.OrchestrationUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class OrchestratorService {
             .doOnNext(OrchestrationUtil::buildRequestContext)
             .flatMap(orderFulfillmentService:: placeOrder)
             .doOnNext(this::doOrderPostProcessing)
+            .doOnNext(DebugUtil::print)
             .map(this::toOrderResponse)
             ;
     }
@@ -34,7 +36,7 @@ public class OrchestratorService {
         return productClient.getProduct(context.getOrderRequest().getProductId())
             .map(Product::getPrice)
             .doOnNext(context::setProductPrice)
-            .thenReturn(context);
+            .map(i -> context);
     }
 
     private void doOrderPostProcessing(OrchestrationRequestContext context) {
