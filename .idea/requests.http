@@ -51,3 +51,7 @@ GET localhost:8080/sec06/product/3
 
 ### sec07 상품 조합 api with retry
 GET localhost:8080/sec07/product/3
+
+
+### sec08 상품 조합 api with retry
+GET localhost:8080/sec08/product/1

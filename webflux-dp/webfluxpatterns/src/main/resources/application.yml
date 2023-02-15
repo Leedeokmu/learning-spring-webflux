@@ -2,6 +2,19 @@
 #  level:
 #    root: debug
 
+resilience4j.circuitbreaker:
+  instances:
+    review-service:
+      slidingWindowType: COUNT_BASED # 실패를 판단하는 타입
+      slidingWindowSize: 4
+      minimumNumberOfCalls: 2 # 몇 번의 호출 이상일 때 실패로 판단할 것인
+      failureRateThreshold: 50 # 몇 % 까지 에러를 허용할 것인지
+      waitDurationInOpenState: 10s # cb 가 열린 상태에서 얼마가 지난 후 half-open 으로 변경할 것인지
+      permittedNumberOfCallsInHalfOpenState: 2 # half-open 상태에서 성공 판단을 위해 몇 번까지 호출할 것인지
+      recordExceptions:
+        - org.springframework.web.reactive.function.client.WebClientResponseException
+        - java.util.concurrent.TimeoutException
+
 sec01:
   product.service: http://localhost:7070/sec01/product/
   promotion.service: http://localhost:7070/sec01/promotion/
@@ -36,3 +49,7 @@ sec06:
 sec07:
   product.service: http://localhost:7070/sec07/product/
   review.service: http://localhost:7070/sec07/review/
+
+sec08:
+  product.service: http://localhost:7070/sec08/product/
+  review.service: http://localhost:7070/sec08/review/
