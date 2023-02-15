@@ -46,5 +46,8 @@ Content-Type: application/json
   }
 ]
 
-### sec06 상품 조합 api
+### sec06 상품 조합 api with timeout
 GET localhost:8080/sec06/product/3
+
+### sec07 상품 조합 api with retry
+GET localhost:8080/sec07/product/3
