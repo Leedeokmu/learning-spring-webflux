@@ -55,5 +55,5 @@ GET localhost:8080/sec07/product/3
 ### sec08 상품 조합 api with retry
 GET localhost:8080/sec08/product/1
 
-### sec09 상품 조합 api with retry
-GET localhost:8080/sec09/calculator/2
+### sec10 cpu bound - calc fib
+GET localhost:8080/sec10/fib/10

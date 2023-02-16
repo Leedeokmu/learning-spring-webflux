@@ -49,7 +49,6 @@ sec04:
   inventory.service: http://localhost:7070/sec04/inventory/
   shipping.service: http://localhost:7070/sec04/shipping/
 
-
 sec05:
   car.service: http://localhost:7070/sec05/car/reserve
   room.service: http://localhost:7070/sec05/room/reserve
@@ -69,3 +68,7 @@ sec08:
 sec09:
   product.service: http://localhost:7070/sec09/product/
   review.service: http://localhost:7070/sec09/review/
+
+sec10:
+  product.service: http://localhost:7070/sec10/product/
+  review.service: http://localhost:7070/sec10/review/
